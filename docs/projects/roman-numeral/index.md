@@ -1,0 +1,142 @@
+---
+date: 2018-10-07
+featured-image: roman-numeral-in-every-language.jpg
+last-modified: 2024-01-22
+layout: default
+tags:
+- roman-numeral
+title: Roman Numeral
+---
+
+<!--
+AUTO-GENERATED -- PLEASE DO NOT EDIT!
+
+Instead, please edit the following:
+
+- sources/projects/roman-numeral/description.md
+- sources/projects/roman-numeral/requirements.md
+
+See .github/CONTRIBUTING.md for further details.
+-->
+
+Welcome to the Roman Numeral page! Here, you'll find a description of the project as well as a list of sample programs written in various languages.
+
+This article was written by:
+
+- Jeremy Grifski
+
+## Description
+
+Roman numerals are the numbers that were used in ancient Rome, which employed
+combinations of letters from the Latin alphabet (I, V, X, L, C, D and M).
+
+The following table shows the letter to decimal mapping:
+
+| Letter | Decimal |
+| ------ | ------- |
+| I      | 1       |
+| V      | 5       |
+| X      | 10      |
+| L      | 50      |
+| C      | 100     |
+| D      | 500     |
+| M      | 1000    |
+
+Stringing together these digits yields a value that is the sum of their
+respective mappings. However, there is a catch. Roman numerals must appears in
+order of greatest to least. If a smaller value appears before a larger one,
+the smaller value is subtracted from the total.
+
+As a result, a string like `XV` would evaluate to 15 while `XIV` would
+evaluate to 14.
+
+Of course, there are other limitations, but we'll ignore those for simplicity.
+
+
+## Requirements
+
+Create a file called Roman Numeral Conversion using whatever naming
+convention is appropriate for the choice language.
+
+Using the table above, write a sample program which accepts a Roman numeral on
+the command line and outputs its decimal value on standard output. Be careful
+to appropriately handle invalid input such as `XT`. More on that in the testing
+section.
+
+_Please_ make sure your program is executable. In other words, the solution
+should be able to be called in the appropriate environment with a string
+of roman numerals (i.e. `./roman-numeral-conversion XXVI`).
+
+
+## Testing
+
+Every project in the [Sample Programs repo](https://github.com/TheRenegadeCoder/sample-programs) should be tested.
+In this section, we specify the set of tests specific to Roman Numeral.
+In order to keep things simple, we split up the testing as follows:
+
+- Roman Numeral Valid Tests
+- Roman Numeral Invalid Tests
+
+### Roman Numeral Valid Tests
+
+| Description | Input | Output |
+| ----------- | ----- | ------ |
+| Empty Input | "" | "0" |
+| Single I | "I" | "1" |
+| Single V | "V" | "5" |
+| Single X | "X" | "10" |
+| Single L | "L" | "50" |
+| Single C | "C" | "100" |
+| Single D | "D" | "500" |
+| Single M | "M" | "1000" |
+| Addition | "XXV" | "25" |
+| Subtraction | "XIV" | "14" |
+
+### Roman Numeral Invalid Tests
+
+| Description | Input | Output |
+| ----------- | ----- | ------ |
+| No Input |  | "Usage: please provide a string of roman numerals" |
+| Invalid Input | "XT" | "Error: invalid string of roman numerals" |
+
+
+## Articles
+
+There are 18 articles:
+
+- [Roman Numeral in Algol68](https://sampleprograms.io/projects/roman-numeral/algol68)
+- [Roman Numeral in Beef](https://sampleprograms.io/projects/roman-numeral/beef)
+- [Roman Numeral in C](https://sampleprograms.io/projects/roman-numeral/c)
+- [Roman Numeral in C#](https://sampleprograms.io/projects/roman-numeral/c-sharp)
+- [Roman Numeral in C++](https://sampleprograms.io/projects/roman-numeral/c-plus-plus)
+- [Roman Numeral in Commodore Basic](https://sampleprograms.io/projects/roman-numeral/commodore-basic)
+- [Roman Numeral in Dart](https://sampleprograms.io/projects/roman-numeral/dart)
+- [Roman Numeral in Euphoria](https://sampleprograms.io/projects/roman-numeral/euphoria)
+- [Roman Numeral in Go](https://sampleprograms.io/projects/roman-numeral/go)
+- [Roman Numeral in Haskell](https://sampleprograms.io/projects/roman-numeral/haskell)
+- [Roman Numeral in Javascript](https://sampleprograms.io/projects/roman-numeral/javascript)
+- [Roman Numeral in Lua](https://sampleprograms.io/projects/roman-numeral/lua)
+- [Roman Numeral in Mathematica](https://sampleprograms.io/projects/roman-numeral/mathematica)
+- [Roman Numeral in Php](https://sampleprograms.io/projects/roman-numeral/php)
+- [Roman Numeral in Python](https://sampleprograms.io/projects/roman-numeral/python)
+- [Roman Numeral in Ruby](https://sampleprograms.io/projects/roman-numeral/ruby)
+- [Roman Numeral in Rust](https://sampleprograms.io/projects/roman-numeral/rust)
+- [Roman Numeral in Typescript](https://sampleprograms.io/projects/roman-numeral/typescript)
+
+***
+
+<nav class="project-nav">
+
+<div id="prev" markdown="1">
+
+[<-- Previous Project (Reverse String)](https://sampleprograms.io/projects/reverse-string)
+
+</div>
+
+<div id="next" markdown="1">
+
+[Next Project (Rot13) -->](https://sampleprograms.io/projects/rot13)
+
+</div>
+
+</nav>

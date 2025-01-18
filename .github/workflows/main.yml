@@ -1,47 +1,57 @@
-name: CI
+name: Website Automation
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: 0 0 * * 0
+  workflow_dispatch:
 
 jobs:
-  build:
+  images:
+    name: Deployment
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.8'
 
-      - name: Install Image Titler
-        run: pip install image-titler
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
 
-      - name: Generate Images
-        run: |
-          sources=assets/sources/
-          images=assets/images/
-          logo=icon-small.png
-          for file in "$sources"*
-          do
-            image-titler --path "$file" --output "$images" --logo "$images$logo"
-            filename=$(basename "$file")
-            edit=$(cd "$images" && ls -t | head -n1)
-            mv "$images$edit" "$images$filename" 
-          done
-      
+      - name: Generate Webpages and Images
+        run: python scripts/automate.py
+
+      - name: Build Webpages with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: docs/
+          destination: docs/_site
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+        # Only build webpage if not on main branch
+        if: ${{ github.ref != 'refs/heads/main' }}
+
       - name: Commit Changes
-        uses: EndBug/add-and-commit@v5 
+        uses: EndBug/add-and-commit@v9 
         with:
           message: |
-            Generated featured images from sources
+            Generated Sample Programs website automatically
             
             
             on-behalf-of: @TheRenegadeCoder <jeremy.grifski@therenegadecoder.com>
-          author_name: Jeremy Grifski
-          author_email: jeremy.grifski@gmail.com
+          author_name: GitHub Actions
+          author_email: action@github.com
 
         env:
           # This is necessary in order to push a commit to the repo
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this line unchanged
+
+        # Only commit if on main branch
+        if: ${{ github.ref == 'refs/heads/main' }}

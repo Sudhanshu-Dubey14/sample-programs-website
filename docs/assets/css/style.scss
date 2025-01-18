@@ -1,0 +1,251 @@
+--- 
+--- 
+
+$header-bg-color: #c90229;
+$header-bg-color-secondary: #939393;
+$section-headings-color: #c90229;
+$brand-color: #c90229;
+
+@import "{{ site.theme }}";
+
+@font-face {
+  font-family: "Bernard HC";
+  src: url("../fonts/BERNHC.TTF");
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.breadcrumb {
+  list-style: none;
+  border-radius: 4px;
+}
+
+.breadcrumb>li {
+  display: inline-block;
+}
+
+.breadcrumb {
+  border: 0px;
+  display: block;
+}
+
+.breadcrumb li {
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  color: $brand-color;
+}
+
+.breadcrumb a:hover {
+  color: darken($brand-color, 20%);
+}
+
+.breadcrumb>.active a {
+  color: #555555;
+}
+
+.breadcrumb>li+li:before {
+  color: $brand-color;
+  content: "\003E\00a0";
+}
+
+.top-nav li {
+  display: inline-block;
+  width: 120px;
+  border-bottom: none;
+  height: 50px;
+  line-height: 50px;
+  font-size: 1.4em;
+}
+
+.top-nav ul {
+  list-style: none;
+  background-color: #171717;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+}
+
+.top-nav a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  transition: .3s background-color;
+}
+
+.top-nav a.active {
+  background-color: $brand-color;
+  color: #fff;
+}
+
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-navigation {
+  padding-top: 20px;
+}
+
+.wrapper {
+  width: 1200px;
+}
+
+section {
+  width: 900px;
+}
+
+img {
+  max-width: 95%;
+}
+
+.featured-image {
+  position: relative;
+  width: 100%;
+}
+
+.featured-image img {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  max-width: 100%;
+}
+
+.image-container {
+  position: absolute;
+  right: 0px;
+}
+
+.image-title {
+  background-color: $header-bg-color;
+  color: white;
+  font-family: "Bernard HC";
+  text-align: right;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.letter-link {
+  list-style: none;
+  border-radius: 4px;
+  border: 0px;
+  display: block;
+  font-size: 22px;
+  font-family: serif;
+  font-weight: bold;
+}
+
+.letter-link>li {
+  display: inline-block;
+}
+
+.letter-link a {
+  color: $brand-color;
+}
+
+.letter-link a:hover {
+  color: darken($brand-color, 20%);
+}
+
+.letter-link>li+li:before {
+  color: #232323;
+  content: "|\00a0";
+  font-weight: normal;
+}
+
+@media print, screen and (max-width: 1200px) {
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+	footer {
+		border-top: 1px solid #ccc;
+		margin:0 84px 0 50px;
+		padding:0;
+	}
+
+  header {
+    padding-right:320px;
+  }
+
+  section {
+    padding:20px 84px 20px 50px;
+    margin:0 0 20px;
+  }
+
+  header a small {
+    display:inline;
+  }
+
+  header ul {
+    position:absolute;
+    right:130px;
+    top:84px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+
+  header {
+    padding:10px 20px 0;
+		margin-right: 0;
+  }
+
+	section {
+    padding:10px 0 10px 20px;
+    margin:0 0 30px;
+  }
+
+	footer {
+		margin: 0 0 0 30px;
+	}
+
+  header ul, header p.view {
+    position:static;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+
+  header ul li.download {
+    display:none;
+  }
+
+	footer {
+		margin: 0 0 0 20px;
+	}
+
+	footer a{
+		display:block;
+	}
+
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
